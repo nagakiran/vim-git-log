@@ -165,6 +165,10 @@ function! vimgitlog#diff()
     let l:rev       = split(l:revisions, ':')
     execute 'normal ' . l:oldLineNr . 'G'
 
+    " Open side-by-side diff in a new tab
+    execute 'tab new'
+    execute 'cd ' . l:cwd
+    execute 'e .'
     " show rev0:file
     execute 'Git! show ' . l:rev[0] . ':' . l:filename
     let l:bufnr0 = bufnr("")
